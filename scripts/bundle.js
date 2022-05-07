@@ -15,7 +15,7 @@
   \**************************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://keyboard/./scripts/index.js?");
+eval("/* eslint-disable*/\r\n// document.addEventListener('keyup',showThis)\r\n// document.addEventListener('keydown',showThis) // for symbols\r\ndocument.addEventListener('keypress',showThis) // for Shift,CTRL\r\n\r\n\r\n\r\n\r\nconst global = {\r\n    isShift:false,\r\n    isCtrl:false,\r\n    language:\"ru\",\r\n}\r\n\r\nconst elems = {\r\n    keyboard: document.querySelector('.keyboard'),\r\n    getKeys: function (){\r\n        return document.querySelectorAll('.keyboard *')\r\n    },\r\n}\r\n\r\nconst keyboard = new Keyboard('en')\r\n\r\n// const temp11 = new Key('Digit1', 'standart-key', {\r\n//     order: 0,\r\n//     code: 'Digit1',\r\n//     en: {\r\n//         extraValue: '!',\r\n//         mainValue: '1'\r\n//     },\r\n//     ru: {\r\n//         extraValue: '!',\r\n//         mainValue: '1'\r\n//     },\r\n//     size: 'standart-key'\r\n// })\r\n\r\nfunction showThis(event){\r\n    console.log(event.code);\r\n}\r\n\r\nfunction removeKeys(){\r\n    elems.getKeys().forEach(i => i.remove())\r\n}\r\n\r\n// keys.\r\n\r\nfunction redrawKeyboard(){\r\n    removeKeys()\r\n    // TODO drawKeyboard() or init()\r\n}\n\n//# sourceURL=webpack://keyboard/./scripts/index.js?");
 
 /***/ })
 
