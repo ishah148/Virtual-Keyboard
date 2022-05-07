@@ -4,6 +4,7 @@
         "sourceType": "module",
         "ecmaFeatures": {}
     },
+    "extends": "airbnb-base/legacy",
     "rules": {
         "constructor-super": 2,
         "for-direction": 2,
@@ -65,7 +66,8 @@
         "no-with": 2,
         "require-yield": 2,
         "use-isnan": 2,
-        "valid-typeof": 2
+        "valid-typeof": 2,
+        "linebreak-style": ["error", "windows"]
     },
     "env": {
         "browser": true,

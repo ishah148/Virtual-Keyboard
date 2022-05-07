@@ -15,7 +15,7 @@
   \**************************/
 /***/ (() => {
 
-eval("console.log('123')\r\nalert('123')\n\n//# sourceURL=webpack://keyboard/./scripts/index.js?");
+eval("\n\n//# sourceURL=webpack://keyboard/./scripts/index.js?");
 
 /***/ })
 
