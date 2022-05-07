@@ -2,7 +2,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './scripts/main.js',
+  entry: './scripts/index.js',
   output: {
     // eslint-disable-next-line no-undef
     path: path.resolve(__dirname, 'scripts'),
@@ -16,5 +16,5 @@ module.exports = {
       watch: true
     },
   },
-  // watch: true,
+  watch: true,
 };
