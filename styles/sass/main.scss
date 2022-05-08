@@ -33,7 +33,7 @@ body {
     transform: scale(0.95);
     background: var(--color-primary);
     box-shadow: none;
-    transition: all 0.3s;
+    transition: all 0.1s;
 }
 
 .keyboard-wrapper {
@@ -65,17 +65,28 @@ body {
             box-shadow: 1px 1.5px 1.5px 1px var(--color-dark);
             &.pressed{
                 background: var(--color-primary);
+                box-shadow: none;
+            }
+            &.shift--pressed{
+                .main-symbol{
+                    display: none;
+                }
+                .extra-symbol{
+                    display: block;
+                }
             }
             .main-symbol{
                 position: absolute;
                 @extend %center;
+                &.shift--pressed{
+                    display: none;
+                }
             }
             .extra-symbol{
-                // text-align: right;
+                display: none;
                 width: min-content;
                 position: absolute;
-                top: 3px;
-                right: 3px;
+                @extend %center;
             }
             span{
                 display: block;

@@ -1,31 +1,35 @@
 /* eslint-disable*/
 class Key {
-    constructor(value, size, lang ,obj) {
-        this.code = value;
-        this.size = size;
-        this.html = this.getHtml();
+    constructor(obj,lang,uppercase = 'g') {
         this.obj = obj;
+        this.lang = lang;
+        this.code = this.obj.code;
+        this.size = this.obj.size;
+        this.isUppercase = uppercase;
+        this.isPressed = false;
+        this.html = this.getHtml();
         this.init();
     }
 
     init() {
-        this.checkLang()
-    }
-
-    checkLang() {
-        // TODO add lang <- 
         
     }
 
     getHtml() {
         return `
-        <div class="key ${this.size}"> 
-             <span class="extra-symbol">!</span>
-             <span class="main-symbol">1</span>
+        <div class="key ${this.size} ${this.checkUppecase()}" id ="${this.code}"> 
+             <span class="extra-symbol">${this.obj[this.lang].extraValue}</span>
+             <span class="main-symbol">${this.obj[this.lang].mainValue}</span>
         </div>
        `
     }
 
+    checkUppecase(){
+        return this.isUppercase === true?'shift--pressed':''
+    }
+    checkPressed(){
+        return this.isPressed === true?'pressed':''
+    }
 }
 
 
@@ -52,11 +56,11 @@ let keysArr = [
         code: 'Digit2',
         size: 'standart-key',
         en: {
-            extraValue: '!',
+            extraValue: '@',
             mainValue: '2'
         },
         ru: {
-            extraValue: '!',
+            extraValue: '"',
             mainValue: '2'
         },
     },
@@ -110,6 +114,19 @@ let keysArr = [
         ru: {
             extraValue: ':',
             mainValue: '6'
+        },
+    },
+    {
+        order: 1,
+        code: 'KeyQ',
+        size: 'standart-key',
+        en: {
+            extraValue: 'Q',
+            mainValue: 'q'
+        },
+        ru: {
+            extraValue: 'Й',
+            mainValue: 'й'
         },
     },
 ];

@@ -3,7 +3,7 @@
   --color-dark:#c7c7c7;
 }
 
-.keyboard-wrapper .keyboard .key .main-symbol {
+.keyboard-wrapper .keyboard .key .extra-symbol, .keyboard-wrapper .keyboard .key .main-symbol {
   position: absolute;
   width: min-content;
   height: min-content;
@@ -35,7 +35,7 @@
   transform: scale(0.95);
   background: var(--color-primary);
   box-shadow: none;
-  transition: all 0.3s;
+  transition: all 0.1s;
 }
 
 .keyboard-wrapper textarea {
@@ -65,15 +65,24 @@
 }
 .keyboard-wrapper .keyboard .key.pressed {
   background: var(--color-primary);
+  box-shadow: none;
+}
+.keyboard-wrapper .keyboard .key.shift--pressed .main-symbol {
+  display: none;
+}
+.keyboard-wrapper .keyboard .key.shift--pressed .extra-symbol {
+  display: block;
 }
 .keyboard-wrapper .keyboard .key .main-symbol {
   position: absolute;
 }
+.keyboard-wrapper .keyboard .key .main-symbol.shift--pressed {
+  display: none;
+}
 .keyboard-wrapper .keyboard .key .extra-symbol {
+  display: none;
   width: min-content;
   position: absolute;
-  top: 3px;
-  right: 3px;
 }
 .keyboard-wrapper .keyboard .key span {
   display: block;
