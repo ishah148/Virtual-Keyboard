@@ -97,7 +97,7 @@ class Keyboard {
 
         document.addEventListener('keydown', (event) => {
             this.enterText(event.code)
-            // console.log('keydown',event.code)
+            console.log('keydown',event.code)
             if (!document.getElementById(event.code).classList.contains('pressed') && event.code !== 'CapsLock') { // all keys: processing for style(.pressed)
                 document.getElementById(event.code).classList.toggle('pressed');
             }

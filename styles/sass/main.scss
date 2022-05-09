@@ -26,7 +26,7 @@ body {
     width: 100px;
 }
 .space {
-    width: 200px; 
+    width: 300px; 
 }
 
 .pressed {
@@ -48,8 +48,8 @@ body {
     
     .keyboard {
         background: var(--color-primary);
-        width: 750px;
-        height: 250px;
+        width: 790px;
+        height: 270px;
         border: 2px solid black;
         margin: 0 auto;
         padding: 10px;
@@ -57,6 +57,9 @@ body {
         flex-direction: row;
         flex-wrap: wrap;
         gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        align-content: center;
         .key{
             height: 40px;
             border: 2px solid black;

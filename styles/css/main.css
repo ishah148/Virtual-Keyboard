@@ -28,7 +28,7 @@
 }
 
 .space {
-  width: 200px;
+  width: 300px;
 }
 
 .pressed {
@@ -47,8 +47,8 @@
 }
 .keyboard-wrapper .keyboard {
   background: var(--color-primary);
-  width: 750px;
-  height: 250px;
+  width: 790px;
+  height: 270px;
   border: 2px solid black;
   margin: 0 auto;
   padding: 10px;
@@ -56,6 +56,9 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
 }
 .keyboard-wrapper .keyboard .key {
   height: 40px;
