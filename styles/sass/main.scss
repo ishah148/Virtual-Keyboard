@@ -90,6 +90,8 @@ body {
             }
             span{
                 display: block;
+                position: relative;
+                user-select: none;
             }   
         }
     }

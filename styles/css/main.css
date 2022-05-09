@@ -86,6 +86,8 @@
 }
 .keyboard-wrapper .keyboard .key span {
   display: block;
+  position: relative;
+  user-select: none;
 }
 
 /*# sourceMappingURL=main.css.map */

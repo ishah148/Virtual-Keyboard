@@ -1,4 +1,5 @@
 /* eslint-disable*/
+let a = [];
 class Keyboard {
     constructor(lang) {
         this.lang = lang;
@@ -47,7 +48,7 @@ class Keyboard {
             })
         }
     }
-    redrawValues(type) {
+    redrawSymbols(type) {
         if (type === 'extraValue') {
             // console.log('extra')
             this.keys.forEach(key => {
@@ -90,15 +91,15 @@ class Keyboard {
             if (event.code === 'CapsLock' && !this.elems.getCapsLock().classList.contains('pressed')) {
                 
                 console.log('1')
-                this.redrawValues('extraValue');
+                this.redrawSymbols('extraValue');
             }
             if (event.code === 'CapsLock' && this.elems.getCapsLock().classList.contains('pressed')) {
                 
                 console.log('2')
-                this.redrawValues('mainValue');
+                this.redrawSymbols('mainValue');
             }
             if (!(event.code === 'ShiftLeft') && this.elems.getCapsLock().classList.contains('pressed')) {
-                // this.redrawValues('extraValue')
+                // this.redrawSymbols('extraValue')
             }
         })
 
@@ -128,10 +129,10 @@ class Keyboard {
         document.addEventListener('keydown', (event) => {
             if (event.code === 'ShiftLeft' && !this.elems.getCapsLock().classList.contains('pressed')) {
                 // console.log('ShiftDown')
-                this.redrawValues('extraValue');
+                this.redrawSymbols('extraValue');
             } // work!!!
             if (event.code === 'ShiftLeft' && this.elems.getCapsLock().classList.contains('pressed')) {
-                this.redrawValues('mainValue');
+                this.redrawSymbols('mainValue');
             }
             if(this.isPressed('ShiftLeft') &&  this.isPressed('ControlLeft')){
                 console.log('switchLang') // TODO switch lang here!
@@ -141,11 +142,20 @@ class Keyboard {
         document.addEventListener('keyup', (event) => {
             if (event.code === 'ShiftLeft' && !this.elems.getCapsLock().classList.contains('pressed')) {
                 // console.log('ShiftUP')
-                this.redrawValues('mainValue');
+                this.redrawSymbols('mainValue');
             } // work!!!
             if (event.code === 'ShiftLeft' && this.elems.getCapsLock().classList.contains('pressed')) {
-                this.redrawValues('extraValue');
+                this.redrawSymbols('extraValue');
             }
+        })
+
+        // =============== click ===============
+        this.elems.keyboard.addEventListener('click',(event)=>{
+            let temp = event.path.filter(i => i.id)[0]
+            temp.classList.add('pressed')
+            temp.addEventListener('transitionend',()=>{
+                temp.classList.remove('pressed')
+            })
         })
 
     }
