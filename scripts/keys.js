@@ -209,7 +209,7 @@ let keysArr = [
         },
     },
     {
-        type: 'system',
+        type: 'standart',
         code: 'Backspace',
         size: 'shift',
         en: {
@@ -225,7 +225,7 @@ let keysArr = [
 
     // row2 =============== row2 ===============
     {
-        type: 'system',
+        type: 'standart',
         code: 'Tab',
         size: 'shift',
         en: {
@@ -564,7 +564,7 @@ let keysArr = [
         },
     },
     {
-        type: 'system',
+        type: 'standart',
         code: 'Enter',
         size: 'shift',
         en: {
@@ -722,6 +722,19 @@ let keysArr = [
     },
     {
         type: 'system',
+        code: 'ArrowUp',
+        size: 'standart-key',
+        en: {
+            extraValue: '▲',
+            mainValue: '▲'
+        },
+        ru: {
+            extraValue: '▲',
+            mainValue: '▲'
+        },
+    },
+    {
+        type: 'system',
         code: 'ShiftRight',
         size: 'shift',
         en: {
@@ -774,7 +787,7 @@ let keysArr = [
         },
     },
     {
-        type: 'system',
+        type: 'standart',
         code: 'Space',
         size: 'space',
         en: {
@@ -813,6 +826,45 @@ let keysArr = [
         },
     },
     {
+        type: 'standart',
+        code: 'ArrowLeft',
+        size: 'standart-key',
+        en: {
+            extraValue: '◄',
+            mainValue: '◄'
+        },
+        ru: {
+            extraValue: '◄',
+            mainValue: '◄'
+        },
+    },
+    {
+        type: 'standart',
+        code: 'ArrowDown',
+        size: 'standart-key',
+        en: {
+            extraValue: '▼',
+            mainValue: '▼'
+        },
+        ru: {
+            extraValue: '▼',
+            mainValue: '▼'
+        },
+    },
+    {
+        type: 'standart',
+        code: 'ArrowRight',
+        size: 'standart-key',
+        en: {
+            extraValue: '►',
+            mainValue: '►'
+        },
+        ru: {
+            extraValue: '►',
+            mainValue: '►'
+        },
+    },
+    {
         type: 'system',
         code: 'ControlRight',
         size: 'shift',
@@ -826,46 +878,5 @@ let keysArr = [
         },
     },
 
-    
 ];
 
-
-// {
-//     type: 'system',
-//     code: 'ShiftLeft',
-//     size: 'shift',
-//     en: {
-//         extraValue: 'Shift',
-//         mainValue: 'Shift'
-//     },
-//     ru: {
-//         extraValue: 'Shift',
-//         mainValue: 'Shift'
-//     },
-// },
-// {
-//     type: 'system',
-//     code: 'CapsLock',
-//     size: 'shift',
-//     en: {
-//         extraValue: 'CapsLock',
-//         mainValue: 'CapsLock'
-//     },
-//     ru: {
-//         extraValue: 'CapsLock',
-//         mainValue: 'CapsLock'
-//     },
-// },
-// {
-//     type: 'system',
-//     code: 'ControlLeft',
-//     size: 'standart-key',
-//     en: {
-//         extraValue: 'Ctrl',
-//         mainValue: 'Ctrl'
-//     },
-//     ru: {
-//         extraValue: 'Ctrl',
-//         mainValue: 'Ctrl'
-//     },
-// },

@@ -28,7 +28,11 @@
 }
 
 .space {
-  width: 300px;
+  width: 213px;
+}
+
+#ControlRight {
+  width: 40px;
 }
 
 .pressed {
@@ -38,9 +42,12 @@
   transition: all 0.1s;
 }
 
+.keyboard-wrapper {
+  outline: none;
+}
 .keyboard-wrapper textarea {
   display: block;
-  width: 750px;
+  width: 790px;
   margin: 0 auto;
   user-select: none;
   pointer-events: none;

@@ -26,9 +26,11 @@ body {
     width: 100px;
 }
 .space {
-    width: 300px; 
+    width: 213px; 
 }
-
+#ControlRight{
+    width: 40px;
+}
 .pressed {
     transform: scale(0.95);
     background: var(--color-primary);
@@ -37,10 +39,10 @@ body {
 }
 
 .keyboard-wrapper {
-    
+    outline: none;
     textarea {
         display: block;
-        width: 750px;
+        width: 790px;
         margin: 0 auto;
         user-select: none;
         pointer-events: none;
