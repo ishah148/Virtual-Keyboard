@@ -1,10 +1,11 @@
 /* eslint-disable*/
 class Key {
-    constructor(obj,lang,uppercase = 'g') {
+    constructor(obj, lang, uppercase = 'g') {
         this.obj = obj;
         this.lang = lang;
         this.code = this.obj.code;
         this.size = this.obj.size;
+        this.type = this.obj.type;
         this.isUppercase = uppercase;
         this.isPressed = false;
         this.html = this.getHtml();
@@ -12,7 +13,7 @@ class Key {
     }
 
     init() {
-        
+
     }
 
     getHtml() {
@@ -24,11 +25,11 @@ class Key {
        `
     }
 
-    checkUppecase(){
-        return this.isUppercase === true?'shift--pressed':''
+    checkUppecase() {
+        return this.isUppercase === true ? 'shift--pressed' : ''
     }
-    checkPressed(){
-        return this.isPressed === true?'pressed':''
+    checkPressed() {
+        return this.isPressed === true ? 'pressed' : ''
     }
 }
 
@@ -39,7 +40,7 @@ class Key {
 
 let keysArr = [
     {
-        order: 0,
+        type: 'standart',
         code: 'Digit1',
         size: 'standart-key',
         en: {
@@ -52,7 +53,7 @@ let keysArr = [
         },
     },
     {
-        order: 1,
+        type: 'standart',
         code: 'Digit2',
         size: 'standart-key',
         en: {
@@ -65,7 +66,7 @@ let keysArr = [
         },
     },
     {
-        order: 2,
+        type: 'standart',
         code: 'Digit3',
         size: 'standart-key',
         en: {
@@ -78,7 +79,7 @@ let keysArr = [
         },
     },
     {
-        order: 1,
+        type: 'standart',
         code: 'Digit4',
         size: 'standart-key',
         en: {
@@ -91,7 +92,7 @@ let keysArr = [
         },
     },
     {
-        order: 1,
+        type: 'standart',
         code: 'Digit5',
         size: 'standart-key',
         en: {
@@ -104,7 +105,7 @@ let keysArr = [
         },
     },
     {
-        order: 1,
+        type: 'standart',
         code: 'Digit6',
         size: 'standart-key',
         en: {
@@ -117,7 +118,7 @@ let keysArr = [
         },
     },
     {
-        order: 1,
+        type: 'standart',
         code: 'KeyQ',
         size: 'standart-key',
         en: {
@@ -127,6 +128,32 @@ let keysArr = [
         ru: {
             extraValue: 'Й',
             mainValue: 'й'
+        },
+    },
+    {
+        type: 'system',
+        code: 'ShiftLeft',
+        size: 'shift',
+        en: {
+            extraValue: 'Shift',
+            mainValue: 'Shift'
+        },
+        ru: {
+            extraValue: 'Shift',
+            mainValue: 'Shift'
+        },
+    },
+    {
+        type: 'system',
+        code: 'CapsLock',
+        size: 'shift',
+        en: {
+            extraValue: 'CapsLock',
+            mainValue: 'CapsLock'
+        },
+        ru: {
+            extraValue: 'CapsLock',
+            mainValue: 'CapsLock'
         },
     },
 ];
