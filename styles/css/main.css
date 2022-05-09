@@ -1,6 +1,14 @@
+body {
+  background: rgb(34, 193, 195);
+  background: linear-gradient(0deg, rgb(34, 193, 195) 0%, rgb(253, 187, 45) 100%);
+  height: 800px;
+  padding-top: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 :root {
-  --color-primary:#fafafa;
-  --color-dark:#c7c7c7;
+  --color-primary: #c7c7c788;
+  --color-dark: #c7c7c7;
 }
 
 .keyboard-wrapper .keyboard .key .extra-symbol, .keyboard-wrapper .keyboard .key .main-symbol {
@@ -20,26 +28,37 @@
 
 .standart-key {
   width: 40px;
+  border-radius: 15%;
 }
 
 .enter,
 .shift {
   width: 100px;
+  border-radius: 5%;
 }
 
 .space {
   width: 213px;
+  border-radius: 3%;
 }
 
 #ControlRight {
   width: 40px;
 }
 
+#ContextMenu {
+  font-size: 14px;
+}
+
 .pressed {
   transform: scale(0.95);
   background: var(--color-primary);
   box-shadow: none;
-  transition: all 0.1s;
+  transition: all 0.3s;
+}
+
+h1 {
+  text-align: center;
 }
 
 .keyboard-wrapper {
@@ -51,12 +70,14 @@
   margin: 0 auto;
   user-select: none;
   pointer-events: none;
+  background: var(--color-primary);
+  font-size: 24px;
 }
 .keyboard-wrapper .keyboard {
   background: var(--color-primary);
   width: 790px;
   height: 270px;
-  border: 2px solid black;
+  border: 1px solid black;
   margin: 0 auto;
   padding: 10px;
   display: flex;
@@ -69,14 +90,18 @@
 }
 .keyboard-wrapper .keyboard .key {
   height: 40px;
-  border: 2px solid black;
+  border: 1px solid black;
   padding: 3px;
   position: relative;
   background: var(--color-dark);
-  box-shadow: 1px 1.5px 1.5px 1px var(--color-dark);
+  transition: transform 0.1s;
+  font-size: 16px;
+}
+.keyboard-wrapper .keyboard .key:hover {
+  opacity: 0.68;
 }
 .keyboard-wrapper .keyboard .key.pressed {
-  background: var(--color-primary);
+  background: #65bf95;
   box-shadow: none;
 }
 .keyboard-wrapper .keyboard .key.shift--pressed .main-symbol {
