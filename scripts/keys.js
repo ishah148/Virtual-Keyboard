@@ -156,4 +156,17 @@ let keysArr = [
             mainValue: 'CapsLock'
         },
     },
+    {
+        type: 'system',
+        code: 'ControlLeft',
+        size: 'standart-key',
+        en: {
+            extraValue: 'Ctrl',
+            mainValue: 'Ctrl'
+        },
+        ru: {
+            extraValue: 'Ctrl',
+            mainValue: 'Ctrl'
+        },
+    },
 ];
