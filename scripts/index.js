@@ -1,7 +1,7 @@
 /* eslint-disable*/
 // document.addEventListener('keyup',showThis)
-// document.addEventListener('keydown',showThis) // for symbols
-// document.addEventListener('keypress',showThis) // for Shift,CTRL
+// document.addEventListener('keydown',showThis) // for Shift,CTRL
+// document.addEventListener('keypress',showThis) // for symbols
 
 
 

@@ -15,6 +15,7 @@ class Keyboard {
     }
 
     init() {
+
         this.elems = {
             keyboard: document.querySelector('.keyboard'),
             getCapsLock: function () { return document.getElementById('CapsLock') },
@@ -22,10 +23,10 @@ class Keyboard {
                 return document.querySelectorAll('.keyboard .key')
             },
         }
-
-        this.initKeys()
-        this.showKeys()
-        this.addEvents()
+        this.initKeys();
+        this.showKeys();
+        this.addEvents();
+        this.textarea = document.querySelector('textarea');
         // console.log(this.isCtrl)
         // console.log(this.isShift)
     }
@@ -77,25 +78,33 @@ class Keyboard {
         return this.isCtrl || this.isShift
     }
 
-    isPressed(i){
+    isPressed(i) {
         return document.getElementById(i).classList.contains('pressed')
+    }
+
+    enterText(text) {
+        if (text === 'Enter') { text = '\n' }
+        if (text === 'Tab') {
+            text = '\t';
+            this.textarea.focus()
+            this.textarea.blur()
+            this.keyboard.focus()
+        }
+        this.textarea.textContent += text
     }
 
     addEvents() {
 
         document.addEventListener('keydown', (event) => {
+            this.enterText(event.code)
             // console.log('keydown',event.code)
             if (!document.getElementById(event.code).classList.contains('pressed') && event.code !== 'CapsLock') { // all keys: processing for style(.pressed)
                 document.getElementById(event.code).classList.toggle('pressed');
             }
             if (event.code === 'CapsLock' && !this.elems.getCapsLock().classList.contains('pressed')) {
-                
-                console.log('1')
                 this.redrawSymbols('extraValue');
             }
             if (event.code === 'CapsLock' && this.elems.getCapsLock().classList.contains('pressed')) {
-                
-                console.log('2')
                 this.redrawSymbols('mainValue');
             }
             if (!(event.code === 'ShiftLeft') && this.elems.getCapsLock().classList.contains('pressed')) {
@@ -134,7 +143,7 @@ class Keyboard {
             if (event.code === 'ShiftLeft' && this.elems.getCapsLock().classList.contains('pressed')) {
                 this.redrawSymbols('mainValue');
             }
-            if(this.isPressed('ShiftLeft') &&  this.isPressed('ControlLeft')){
+            if (this.isPressed('ShiftLeft') && this.isPressed('ControlLeft')) {
                 console.log('switchLang') // TODO switch lang here!
             }
         })
@@ -150,10 +159,13 @@ class Keyboard {
         })
 
         // =============== click ===============
-        this.elems.keyboard.addEventListener('click',(event)=>{
+        this.elems.keyboard.addEventListener('click', (event) => {
             let temp = event.path.filter(i => i.id)[0]
             temp.classList.add('pressed')
-            temp.addEventListener('transitionend',()=>{
+            // this.textarea.textContent += temp.id
+            this.enterText(temp.id)
+            // console.dir(temp)
+            temp.addEventListener('transitionend', () => {
                 temp.classList.remove('pressed')
             })
         })

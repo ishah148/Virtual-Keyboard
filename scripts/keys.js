@@ -119,6 +119,58 @@ let keysArr = [
     },
     {
         type: 'standart',
+        code: 'Digit7',
+        size: 'standart-key',
+        en: {
+            extraValue: '&',
+            mainValue: '7'
+        },
+        ru: {
+            extraValue: '?',
+            mainValue: '7'
+        },
+    },
+    {
+        type: 'standart',
+        code: 'Digit8',
+        size: 'standart-key',
+        en: {
+            extraValue: '*',
+            mainValue: '8'
+        },
+        ru: {
+            extraValue: '*',
+            mainValue: '8'
+        },
+    },
+    {
+        type: 'standart',
+        code: 'Digit9',
+        size: 'standart-key',
+        en: {
+            extraValue: '(',
+            mainValue: '9'
+        },
+        ru: {
+            extraValue: '(',
+            mainValue: '9'
+        },
+    },
+    {
+        type: 'standart',
+        code: 'Digit0',
+        size: 'standart-key',
+        en: {
+            extraValue: ')',
+            mainValue: '0'
+        },
+        ru: {
+            extraValue: ')',
+            mainValue: '0'
+        },
+    },
+    {
+        type: 'standart',
         code: 'KeyQ',
         size: 'standart-key',
         en: {
