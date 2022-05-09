@@ -1,0 +1,129 @@
+body {
+    // margin: 0 auto;
+    background: rgb(34, 193, 195);
+    background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+    height: max-content ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+:root {
+    --color-primary: #c7c7c788;
+    // --color-primary: #fafafa;
+    --color-dark: #c7c7c7;
+}
+%center {
+    position: absolute;
+    width: min-content;
+    height: min-content;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+* {
+    box-sizing: border-box;
+}
+.standart-key {
+    width: 40px;
+    border-radius: 15%;
+}
+.enter,
+.shift {
+    width: 100px;
+    border-radius: 5%;
+}
+.space {
+    width: 213px;
+    border-radius: 3%;
+}
+#ControlRight {
+    width: 40px;
+}
+#ContextMenu{
+    font-size: 14px;
+}
+.pressed {
+    transform: scale(0.95);
+    background: var(--color-primary);
+    box-shadow: none;
+    transition: all 0.3s;
+}
+
+h1{
+    text-align: center;
+}
+.keyboard-wrapper {
+    outline: none;
+    textarea {
+        display: block;
+        width: 790px;
+        margin: 0 auto;
+        user-select: none;
+        pointer-events: none;
+        background: var(--color-primary);
+        font-size: 24px;
+    }
+
+    .keyboard {
+        background: var(--color-primary);
+        width: 790px;
+        height: 270px;
+        border: 1px solid black;
+        margin: 0 auto;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        align-content: center;
+        .key {
+            height: 40px;
+            border: 1px solid black;
+            padding: 3px;
+            position: relative;
+            background: var(--color-dark);
+            transition: transform 0.1s;
+            // transform: scale(1.0);
+            font-size: 16px;
+            &:hover{
+                // transition: transform 0.1s;
+                opacity: 0.68;
+                // transform: scale(1.05);
+            }
+            // display: flex;
+            
+            &.pressed {
+                background: #65bf95;
+                box-shadow: none;
+            }
+            &.shift--pressed {
+                .main-symbol {
+                    display: none;
+                }
+                .extra-symbol {
+                    display: block;
+                }
+            }
+            .main-symbol {
+                position: absolute;
+                @extend %center;
+                &.shift--pressed {
+                    display: none;
+                }
+            }
+            .extra-symbol {
+                display: none;
+                width: min-content;
+                position: absolute;
+                @extend %center;
+            }
+            span {
+                display: block;
+                position: relative;
+                user-select: none;
+            }
+        }
+    }
+}
