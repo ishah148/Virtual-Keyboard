@@ -1,5 +1,5 @@
 /* eslint-disable*/
-class Key {
+export default class Key {
     constructor(obj, lang, uppercase = 'g') {
         this.obj = obj;
         this.lang = lang;
@@ -34,7 +34,7 @@ class Key {
 }
 
 
-let keysArr = [
+export let keysArr = [
     {
         type: 'standart',
         code: 'Backquote',

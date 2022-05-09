@@ -1,5 +1,7 @@
 /* eslint-disable*/
-class Keyboard {
+import Key from './keys.js';
+import { keysArr } from './keys.js';
+export default class Keyboard {
     constructor(lang) {
         this.lang = lang;
         this.keys = [];
@@ -7,10 +9,6 @@ class Keyboard {
         this.isShift = false;
         this.isCtrl = false;
         this.init();
-        this.flags = {
-            isShiftPressed: false, // TODO remove
-            isCapsPressed: false
-        };
     }
 
     init() {
@@ -26,8 +24,6 @@ class Keyboard {
         this.addEvents();
         this.textarea = document.querySelector('textarea');
         this.systemKeys = ['CapsLock', 'Shift', 'Control', 'Meta', 'Alt', 'Ctrl'];
-        // console.log(this.isCtrl)
-        // console.log(this.isShift)
     }
 
     initKeys() {
@@ -51,7 +47,7 @@ class Keyboard {
 
     redrawSymbols(type) {
         if (type === 'extraValue') {
-            // console.log('extra')
+
             this.keys.forEach(key => {
                 if (key.type === 'standart') {
                     document.getElementById(key.code).classList.add('shift--pressed');
@@ -59,7 +55,7 @@ class Keyboard {
             });
         }
         if (type === 'mainValue') {
-            // console.log('main')
+
             this.keys.forEach(key => {
                 if (key.type === 'standart') {
                     document.getElementById(key.code).classList.remove('shift--pressed');
@@ -125,7 +121,7 @@ class Keyboard {
         document.addEventListener('keydown', (event) => {
             // this.enterText(event.key) //TODO remove
             this.enterText(document.getElementById(event.code).innerText);
-            // console.log(document.getElementById(event.code).innerText)
+
             if (!document.getElementById(event.code).classList.contains('pressed') && event.code !== 'CapsLock') { // all keys: processing for style(.pressed)
                 document.getElementById(event.code).classList.toggle('pressed');
             }
@@ -141,7 +137,7 @@ class Keyboard {
         });
 
         document.addEventListener('keyup', (event) => {
-            // console.log('keyUP',event.code)
+
             if (event.code !== 'CapsLock') {
                 document.getElementById(event.code).classList.toggle('pressed');
             }
@@ -152,34 +148,32 @@ class Keyboard {
 
         // =============== Test ===============
         document.addEventListener('keydown', (event) => {
-            // console.log('keypress',event.code)
+
             if (event.code === 'ShiftLeft') {
-                // console.log('ShiftLeft')
+
             }
 
             if (event.code !== 'CapsLock') {
-                // console.log('caps')
+
             }
         });
         // =============== shift ===============
 
         document.addEventListener('keydown', (event) => {
             if (event.code === 'ShiftLeft' && !this.elems.getCapsLock().classList.contains('pressed')) {
-                // console.log('ShiftDown')
                 this.redrawSymbols('extraValue');
-            } // work!!!
+            }
             if (event.code === 'ShiftLeft' && this.elems.getCapsLock().classList.contains('pressed')) {
                 this.redrawSymbols('mainValue');
             }
             if (this.isPressed('ShiftLeft') && this.isPressed('ControlLeft')) {
-                console.log('switchLang'); // TODO switch lang here!
                 this.switchLang();
             }
         });
 
         document.addEventListener('keyup', (event) => {
             if (event.code === 'ShiftLeft' && !this.elems.getCapsLock().classList.contains('pressed')) {
-                // console.log('ShiftUP')
+
                 this.redrawSymbols('mainValue');
             } // work!!!
             if (event.code === 'ShiftLeft' && this.elems.getCapsLock().classList.contains('pressed')) {
@@ -198,14 +192,11 @@ class Keyboard {
                         temp.classList.remove('pressed');
                     });
                 }
-                // console.log(temp.id)
-
                 if (temp.id === 'CapsLock' && (!this.isPressed('CapsLock'))) {
                     temp.classList.add('pressed');
-                    console.log(666);
+
                     this.redrawSymbols('extraValue');
                 } else if (temp.id === 'CapsLock' && (this.isPressed('CapsLock'))) {
-                    console.log(6166);
                     temp.classList.remove('pressed');
                     this.redrawSymbols('mainValue');
                 }
