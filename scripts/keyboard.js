@@ -83,18 +83,24 @@ class Keyboard {
             if (!document.getElementById(event.code).classList.contains('pressed') && event.code !== 'CapsLock') { // all keys: processing for style(.pressed)
                 document.getElementById(event.code).classList.toggle('pressed');
             }
-            if (event.code === 'CapsLock') {
-                // document.getElementById('CapsLock').classList.remove('pressed')
+            if (event.code === 'CapsLock' && !this.elems.getCapsLock().classList.contains('pressed')) {
+                
+                console.log('1')
                 this.redrawValues('extraValue');
+            }
+            if (event.code === 'CapsLock' && this.elems.getCapsLock().classList.contains('pressed')) {
+                
+                console.log('2')
+                this.redrawValues('mainValue');
             }
             // if (document.getElementById('ShiftLeft').classList.contains('pressed')) { // only for shift: switch value(extraValue,mainValue)
             //     this.isShift = true;
             //     this.redrawValues('extraValue');
             // } // moved to keyup
-            if (!document.getElementById('ShiftLeft').classList.contains('pressed')/*  && this.elems.getCapsLock().classList.contains('pressed') */) { // cancel : "only for shift: switch value(extraValue,mainValue)"
-                this.isShift = false;
-                this.redrawValues('mainValue')
-            } // moved
+            // if (!document.getElementById('ShiftLeft').classList.contains('pressed')/*  && this.elems.getCapsLock().classList.contains('pressed') */) { // cancel : "only for shift: switch value(extraValue,mainValue)"
+            //     this.isShift = false;
+            //     this.redrawValues('mainValue')
+            // } // moved
             if (!(event.code === 'ShiftLeft') && this.elems.getCapsLock().classList.contains('pressed')) {
                 // this.redrawValues('extraValue')
             }
@@ -105,10 +111,10 @@ class Keyboard {
             if (event.code !== 'CapsLock') {
                 document.getElementById(event.code).classList.toggle('pressed')
             }
-            if (!document.getElementById('ShiftLeft').classList.contains('pressed')/*  && this.elems.getCapsLock().classList.contains('pressed') */) { // cancel : "only for shift: switch value(extraValue,mainValue)"
-                this.isShift = false;
-                this.redrawValues('extraValue')
-            }//moved from keydown
+            // if (!document.getElementById('ShiftLeft').classList.contains('pressed')/*  && this.elems.getCapsLock().classList.contains('pressed') */) { // cancel : "only for shift: switch value(extraValue,mainValue)"
+            //     this.isShift = false;
+            //     this.redrawValues('extraValue')
+            // }//moved from keydown
 
             // if (!document.getElementById('ShiftLeft').classList.contains('pressed')/*  && this.elems.getCapsLock().classList.contains('pressed') */) { // cancel : "only for shift: switch value(extraValue,mainValue)"
             //     this.isShift = false;
@@ -125,25 +131,38 @@ class Keyboard {
             if (event.code === 'ShiftLeft') {
                 // console.log('ShiftLeft')
             }
-            if (event.code === 'ShiftLeft' && this.elems.getCapsLock().classList.contains('pressed')) {
-                this.redrawValues('mainValue')
-            }
+            // if (event.code === 'ShiftLeft' && this.elems.getCapsLock().classList.contains('pressed')) {
+            //     this.redrawValues('mainValue')
+            // }
             if (event.code === 'CapsLock') {
                 // console.log('caps')
             }
         })
-
+        // =============== shift ===============
+        function shiftProcessing(){
+            
+        }
         document.addEventListener('keydown', (event) => {
             // console.log('keypress',event.code)
-            if (event.code === 'ShiftLeft') {
-                console.log('ShiftDown')
+            if (event.code === 'ShiftLeft' && !this.elems.getCapsLock().classList.contains('pressed')) {
+                // console.log('ShiftDown')
+                this.redrawValues('extraValue');
+            } // work!!!
+            if (event.code === 'ShiftLeft' && this.elems.getCapsLock().classList.contains('pressed')) {
+                // console.log('ShiftDown')
+                this.redrawValues('mainValue');
             }
         })
 
         document.addEventListener('keyup', (event) => {
             // console.log('keypress',event.code)
-            if (event.code === 'ShiftLeft') {
-                console.log('ShiftUP')
+            if (event.code === 'ShiftLeft' && !this.elems.getCapsLock().classList.contains('pressed')) {
+                // console.log('ShiftUP')
+                this.redrawValues('mainValue');
+            } // work!!!
+            if (event.code === 'ShiftLeft' && this.elems.getCapsLock().classList.contains('pressed')) {
+                // console.log('ShiftDown')
+                this.redrawValues('extraValue');
             }
         })
 
