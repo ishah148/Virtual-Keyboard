@@ -1,0 +1,129 @@
+body {
+  background: rgb(34, 193, 195);
+  background: linear-gradient(0deg, rgb(34, 193, 195) 0%, rgb(253, 187, 45) 100%);
+  height: max-content;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root {
+  --color-primary: #c7c7c788;
+  --color-dark: #c7c7c7;
+}
+
+.keyboard-wrapper .keyboard .key .extra-symbol, .keyboard-wrapper .keyboard .key .main-symbol {
+  position: absolute;
+  width: min-content;
+  height: min-content;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.standart-key {
+  width: 40px;
+  border-radius: 15%;
+}
+
+.enter,
+.shift {
+  width: 100px;
+  border-radius: 5%;
+}
+
+.space {
+  width: 213px;
+  border-radius: 3%;
+}
+
+#ControlRight {
+  width: 40px;
+}
+
+#ContextMenu {
+  font-size: 14px;
+}
+
+.pressed {
+  transform: scale(0.95);
+  background: var(--color-primary);
+  box-shadow: none;
+  transition: all 0.3s;
+}
+
+h1 {
+  text-align: center;
+}
+
+.keyboard-wrapper {
+  outline: none;
+}
+.keyboard-wrapper textarea {
+  display: block;
+  width: 790px;
+  margin: 0 auto;
+  user-select: none;
+  pointer-events: none;
+  background: var(--color-primary);
+  font-size: 24px;
+}
+.keyboard-wrapper .keyboard {
+  background: var(--color-primary);
+  width: 790px;
+  height: 270px;
+  border: 1px solid black;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+}
+.keyboard-wrapper .keyboard .key {
+  height: 40px;
+  border: 1px solid black;
+  padding: 3px;
+  position: relative;
+  background: var(--color-dark);
+  transition: transform 0.1s;
+  font-size: 16px;
+}
+.keyboard-wrapper .keyboard .key:hover {
+  opacity: 0.68;
+}
+.keyboard-wrapper .keyboard .key.pressed {
+  background: #65bf95;
+  box-shadow: none;
+}
+.keyboard-wrapper .keyboard .key.shift--pressed .main-symbol {
+  display: none;
+}
+.keyboard-wrapper .keyboard .key.shift--pressed .extra-symbol {
+  display: block;
+}
+.keyboard-wrapper .keyboard .key .main-symbol {
+  position: absolute;
+}
+.keyboard-wrapper .keyboard .key .main-symbol.shift--pressed {
+  display: none;
+}
+.keyboard-wrapper .keyboard .key .extra-symbol {
+  display: none;
+  width: min-content;
+  position: absolute;
+}
+.keyboard-wrapper .keyboard .key span {
+  display: block;
+  position: relative;
+  user-select: none;
+}
+
+/*# sourceMappingURL=main.css.map */
