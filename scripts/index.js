@@ -12,26 +12,7 @@
 //     language:"ru",
 // }
 
-const elems = {
-    keyboard: document.querySelector('.keyboard'),
-    getKeys: function (){
-        return document.querySelectorAll('.keyboard *')
-    },
-}
 
-const keyboard = new Keyboard('en')
+const keyboard = new Keyboard(localStorage.getItem('Lang') || 'en')
 
-function showThis(event){
-    console.log(event.code);
-}
-
-function removeKeys(){
-    elems.getKeys().forEach(i => i.remove())
-}
-
-// keys.
-
-function redrawKeyboard(){
-    removeKeys()
-    // TODO drawKeyboard() or init()
-}
+localStorage.getItem('keyboardLang') || 'en';

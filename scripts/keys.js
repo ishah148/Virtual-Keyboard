@@ -34,10 +34,6 @@ class Key {
 }
 
 
-
-
-
-
 let keysArr = [
     {
         type: 'standart',
