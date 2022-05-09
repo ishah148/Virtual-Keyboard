@@ -12,6 +12,16 @@ export default class Keyboard {
     }
 
     init() {
+        this.startPattern = `
+        <div class="keyboard-wrapper" tabindex="1">
+            <h1>Windows keyboard</h1>
+            <textarea name="" id="textarea" cols="50" rows="7" tabindex="-1"></textarea>
+            <div class="keyboard" tabindex="1"></div>
+            <h1>Switch lang :  <b>Crtl + Shift</b></h1>
+        </div>
+        `
+        document.body.insertAdjacentHTML('afterbegin', this.startPattern)
+
         this.elems = {
             keyboard: document.querySelector('.keyboard'),
             getCapsLock: function () { return document.getElementById('CapsLock'); },
@@ -23,7 +33,7 @@ export default class Keyboard {
         this.showKeys();
         this.addEvents();
         this.textarea = document.querySelector('textarea');
-        this.systemKeys = ['CapsLock', 'Shift', 'Control', 'Meta', 'Alt', 'Ctrl'];
+        this.systemKeys = ['CapsLock', 'Shift', 'Control', 'Meta', 'Alt', 'Ctrl', 'Win'];
     }
 
     initKeys() {
@@ -105,7 +115,7 @@ export default class Keyboard {
         } else if (this.lang === 'en') {
             this.lang = 'ru';
         }
-        localStorage.setItem('Lang',this.lang)
+        localStorage.setItem('Lang', this.lang)
         this.removeKeys();
         this.keys = [];
         this.initKeys();
@@ -119,7 +129,6 @@ export default class Keyboard {
 
     addEvents() {
         document.addEventListener('keydown', (event) => {
-            // this.enterText(event.key) //TODO remove
             this.enterText(document.getElementById(event.code).innerText);
 
             if (!document.getElementById(event.code).classList.contains('pressed') && event.code !== 'CapsLock') { // all keys: processing for style(.pressed)
@@ -175,7 +184,7 @@ export default class Keyboard {
             if (event.code === 'ShiftLeft' && !this.elems.getCapsLock().classList.contains('pressed')) {
 
                 this.redrawSymbols('mainValue');
-            } // work!!!
+            }
             if (event.code === 'ShiftLeft' && this.elems.getCapsLock().classList.contains('pressed')) {
                 this.redrawSymbols('extraValue');
             }
